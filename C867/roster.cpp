@@ -1,8 +1,7 @@
 #include "roster.h"
+#include "student.h"
 
-
-void main() 
+int main() 
 {
-
-
+	student teststudent;
 }

@@ -10,7 +10,7 @@ const string studentData[] =
 "A5,Dillon,Odell,dodell9@wgu.edu,27,50,58,40,SOFTWARE" };
 
 
-class student
+class student 
 {
 	//variabes declared private to ensure you must use getters and setters to change them
 	private:
@@ -21,7 +21,24 @@ class student
 		int age;
 		int daysInCourse[3];
 		DegreeType degreeType;
-		student(int I);
+		//constuctor
+		student(int I)
+		{
+			//settings string data to the info from the data array
+			string Data = studentData[I];
+			int Commas[8];
+			//use to mark what comma we are on
+			int commaCount = 0;
+			//getting the location of each comma will be used to seperate out elements of the data string
+			for (int i = 0; i < Data.length; i++)
+			{
+				if (Data[i] = ',')
+				{
+					Commas[commaCount] = i;
+					commaCount++;
+				}
+			}
+		}
 
 	//public functions IE getters and setters
 	public:
@@ -110,21 +127,3 @@ class student
 		}
 
 };
-//constuctor
-student::student(int I)
-{
-	//settings string data to the info from the data array
-	string Data = studentData[I];
-	int Commas[8];
-	//use to mark what comma we are on
-	int commaCount = 0;
-	//getting the location of each comma will be used to seperate out elements of the data string
-	for (int i = 0; i < Data.length; i++)
-	{
-		if (Data[i] = ',')
-		{
-			Commas[commaCount] = i;
-			commaCount++;
-		}
-	}
-}
