@@ -3,5 +3,5 @@
 
 int main() 
 {
-	student teststudent;
+	int i = 0;
 }
