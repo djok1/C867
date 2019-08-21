@@ -125,7 +125,6 @@
   <ItemGroup>
     <ClInclude Include="degree.h" />
     <ClInclude Include="networkStudent.h" />
-    <ClInclude Include="Parser.h" />
     <ClInclude Include="roster.h" />
     <ClInclude Include="securityStudent.h" />
     <ClInclude Include="softwareStudent.h" />
@@ -133,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="networkStudent.cpp" />
-    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="roster.cpp" />
     <ClCompile Include="securityStudent.cpp" />
     <ClCompile Include="softwareStudent.cpp" />

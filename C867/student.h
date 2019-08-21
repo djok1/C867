@@ -1,14 +1,9 @@
 #include <string>
 #include "degree.h"
 #include "Parser.h"
+#include <iostream>
 using namespace std;
 
-const string studentData[] =
-{ "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
-"A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
-"A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
-"A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-"A5,Dillon,Odell,dodell9@wgu.edu,27,50,58,40,SOFTWARE" };
 
 
 class student
@@ -28,26 +23,30 @@ private:
 public:
 
 	//constuctor
-	student(int I)
+	student(string StudentID, string FirstName, string LastName, string Email, int Age, int DaysinCourse[3])
 	{
-		//settings string data to the info from the data array
-		string Data = studentData[I];
-		/*int j = Data.length();
-		int Commas[8];
-		//use to mark what comma we are on
-		int commaCount = 0;
-		//getting the location of each comma will be used to seperate out elements of the data string
-		for (int i = 0; i < j; i++)
-		{
-			if (Data[i] == ',')
-			{
-				Commas[commaCount] = i;
-				commaCount++;
-			}
-		}*/
-
-		int* Commas = Parser::commas(Data);
+		studentID = StudentID;
+		firstName = FirstName;
+		lastName = LastName;
+		email = Email;
+		age = Age;
+		daysInCourse[0] = DaysinCourse[0];
+		daysInCourse[1] = DaysinCourse[1];
+		daysInCourse[2] = DaysinCourse[2];
 	}
+
+	//print function
+	void print()
+	{
+		cout << studentID << " , " << firstName << " , " << lastName << " , " << age << " , " << email << " , " << daysInCourse[0] << " , " << daysInCourse[1] << " , " << daysInCourse[2];
+	}
+
+	//destructor
+	~student()
+	{
+		delete[] this;
+	}
+
 
 	//setters
 	void setstudentID(string StudentID)
@@ -91,9 +90,9 @@ public:
 		}
 	}
 
-	void setdegreeType(DegreeType Degree)
+	virtual void setdegreeType(DegreeType Degree)
 	{
-		degreeType = Degree;
+		
 	}
 
 	//getters
@@ -126,10 +125,10 @@ public:
 	{
 		return daysInCourse[I];
 	}
-
-	DegreeType getdegreeType()
+	//changed naming conventions due to assgigment requirements
+	virtual DegreeType getdegreeProgram()
 	{
-		return degreeType;
+
 	}
 
 };
