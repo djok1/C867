@@ -1,5 +1,6 @@
 #include <string>
 #include "degree.h"
+#include "Parser.h"
 using namespace std;
 
 const string studentData[] =
@@ -31,7 +32,7 @@ public:
 	{
 		//settings string data to the info from the data array
 		string Data = studentData[I];
-		int j = Data.length();
+		/*int j = Data.length();
 		int Commas[8];
 		//use to mark what comma we are on
 		int commaCount = 0;
@@ -43,7 +44,9 @@ public:
 				Commas[commaCount] = i;
 				commaCount++;
 			}
-		}
+		}*/
+
+		int* Commas = Parser::commas(Data);
 	}
 
 	//setters
