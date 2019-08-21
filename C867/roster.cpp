@@ -4,4 +4,5 @@
 int main() 
 {
 	int i = 0;
+	student  test(0);
 }

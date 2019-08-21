@@ -21,28 +21,30 @@ private:
 	int age;
 	int daysInCourse[3];
 	DegreeType degreeType;
+
+
+	//public functions IE getters and setters
+public:
+
 	//constuctor
 	student(int I)
 	{
 		//settings string data to the info from the data array
 		string Data = studentData[I];
-		int j = Data.length;
+		int j = Data.length();
 		int Commas[8];
 		//use to mark what comma we are on
 		int commaCount = 0;
 		//getting the location of each comma will be used to seperate out elements of the data string
-		for (int i = 0; i < j ; i++)
+		for (int i = 0; i < j; i++)
 		{
-			if (Data[i] = ',')
+			if (Data[i] == ',')
 			{
 				Commas[commaCount] = i;
 				commaCount++;
 			}
 		}
 	}
-
-	//public functions IE getters and setters
-public:
 
 	//setters
 	void setstudentID(string StudentID)
