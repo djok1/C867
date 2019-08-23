@@ -3,5 +3,13 @@
 class securityStudent :
 	public student
 {
+	private:
+		DegreeType degreeType = security;
+
+	public:
+		DegreeType getDegreeType()
+		{
+			return degreeType;
+		}
 };
 

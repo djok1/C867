@@ -3,5 +3,13 @@
 class softwareStudent :
 	public student
 {
+	private:
+		DegreeType degreeType = software;
+
+	public:
+		DegreeType getDegreeType()
+		{
+			return degreeType;
+		}
 };
 

@@ -3,5 +3,13 @@
 class networkStudent :
 	public student
 {
+	private:
+		DegreeType degreeType = network;
+
+	public:
+		DegreeType getDegreeType()
+		{
+			return degreeType;
+		}
 };
 

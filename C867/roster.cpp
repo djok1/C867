@@ -10,6 +10,5 @@ string studentData[] =
 
 void main() 
 {
-	
 
 }

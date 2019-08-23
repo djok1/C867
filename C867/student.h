@@ -16,7 +16,7 @@ private:
 	string email;
 	int age;
 	int daysInCourse[3];
-	DegreeType degreeType;
+
 
 
 	//public functions IE getters and setters
