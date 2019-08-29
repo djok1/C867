@@ -8,20 +8,38 @@ string studentData[] =
 "A5,Dillon,Odell,dodell9@wgu.edu,27,50,58,40,SOFTWARE" };
 
 
-void main() 
+int main() 
 {
 	student* classRosterArray[4];
 	// counter for for loop 
 	int counter = 0;
 	//string array for use in parsing meathods
-	string subStudentSTR[9];
+	string subStudentSTR[8];
+	//used in parsing studentData
+	string delimiter = ",";
 	// for each loop to initalise studens and parse student data would prefer to put parsing in own parsing class 
-	for (string student : studentData) 
+	for (string Data : studentData) 
 	{
+		//used so I can parse without destroying data
+		string tempStudentData = Data;
+		// counter to interate though subStudentSTR
+		int I = 0;
 		//used to reset string array
 		for (string resetstudent : subStudentSTR)
 		{
-
+			subStudentSTR[I] = "";
+			I++;
+		}
+		//I counter reset 
+		I = 0;
+		// breaking up data into seperate strings
+		for (string parseStudent : subStudentSTR)
+		{
+			//breaks off part of string
+			subStudentSTR[I] = tempStudentData.substr(0, tempStudentData.find(delimiter));
+			//deletes the part  that was broken off
+			tempStudentData.erase(0, tempStudentData.find(delimiter) + delimiter.length());
+			I++;
 		}
 	}
 }
