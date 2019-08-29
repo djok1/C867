@@ -1,5 +1,8 @@
 #include "roster.h"
 #include "student.h"
+#include "networkStudent.h"
+#include "securityStudent.h"
+#include "softwareStudent.h"
 string studentData[] =
 { "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
 "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
@@ -10,7 +13,7 @@ string studentData[] =
 
 int main() 
 {
-	//student* classRosterArray[4];
+	 student *classRosterArray = new student[4];
 	// counter for for loop 
 	int counter = 0;
 	//string array for use in parsing meathods
@@ -41,7 +44,32 @@ int main()
 			tempStudentData.erase(0, tempStudentData.find(delimiter) + delimiter.length());
 			I++;
 		}
+		//determening what kind of student to use
+		if (subStudentSTR[8] == "SECURITY")
+		{
+			//couldnt think of a better way to implement this maybe later? feedback usefull here
+			classRosterArray[counter] = securityStudent(subStudentSTR[0], subStudentSTR[1], subStudentSTR[2], subStudentSTR[3], subStudentSTR[4], subStudentSTR[5], subStudentSTR[6], subStudentSTR[7]);
+		}
+		else if (subStudentSTR[8] == "NETWORK")
+		{
+			classRosterArray[counter] = networkStudent(subStudentSTR[0], subStudentSTR[1], subStudentSTR[2], subStudentSTR[3], subStudentSTR[4], subStudentSTR[5], subStudentSTR[6], subStudentSTR[7]);
+		}
+		else if (subStudentSTR[8] == "SOFTWARE")
+		{
+			classRosterArray[counter] = softwareStudent(subStudentSTR[0], subStudentSTR[1], subStudentSTR[2], subStudentSTR[3], subStudentSTR[4], subStudentSTR[5], subStudentSTR[6], subStudentSTR[7]);
+		}
+		else 
+		{
+			cout << "error at :" << endl;
+			for (string Data : subStudentSTR)
+			{
+				cout << Data << " : ";
+			}
+			cout << endl;
+			system("pause");
+		}
+		
+		counter++;
 	}
 
-	//delete(*classRosterArray);
 }

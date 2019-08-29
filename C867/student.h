@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "degree.h"
 #include <iostream>
@@ -13,26 +14,27 @@ private:
 	string firstName;
 	string lastName;
 	string email;
-	int age;
-	int daysInCourse[3];
+	int age = 0;
+	int daysInCourse[3] = { 0, 0, 0 };
 	DegreeType degreeType;
 
 
 	//public functions IE getters and setters
 public:
 
-	//constuctor
-	student(string StudentID, string FirstName, string LastName, string Email, int Age, int DaysinCourse[3])
+	//constuctors
+	student(string StudentID, string FirstName, string LastName, string Email, string Age,string Days1,string Days2,string Days3)
 	{
 		studentID = StudentID;
 		firstName = FirstName;
 		lastName = LastName;
 		email = Email;
-		age = Age;
-		daysInCourse[0] = DaysinCourse[0];
-		daysInCourse[1] = DaysinCourse[1];
-		daysInCourse[2] = DaysinCourse[2];
+		age = stoi(Age);
+		daysInCourse[0] = stoi(Days1);
+		daysInCourse[1] = stoi(Days2);
+		daysInCourse[2] = stoi(Days3);
 	}
+	student() {}
 
 	//print function
 	virtual void print()
@@ -43,7 +45,7 @@ public:
 	//destructor
 	~student()
 	{
-		delete[] this;
+
 	}
 
 
@@ -127,7 +129,7 @@ public:
 	//changed naming conventions due to assgigment requirements
 	virtual DegreeType getdegreeProgram()
 	{
-
+		return degreeType;
 	}
 
 };
