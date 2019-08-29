@@ -10,11 +10,11 @@ string studentData[] =
 
 int main() 
 {
-	student* classRosterArray[4];
+	//student* classRosterArray[4];
 	// counter for for loop 
 	int counter = 0;
 	//string array for use in parsing meathods
-	string subStudentSTR[8];
+	string subStudentSTR[9];
 	//used in parsing studentData
 	string delimiter = ",";
 	// for each loop to initalise studens and parse student data would prefer to put parsing in own parsing class 
@@ -42,4 +42,6 @@ int main()
 			I++;
 		}
 	}
+
+	//delete(*classRosterArray);
 }

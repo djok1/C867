@@ -1,6 +1,5 @@
 #include <string>
 #include "degree.h"
-#include "Parser.h"
 #include <iostream>
 using namespace std;
 
