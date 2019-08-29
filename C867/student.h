@@ -16,7 +16,7 @@ private:
 	string email;
 	int age;
 	int daysInCourse[3];
-
+	DegreeType degreeType;
 
 
 	//public functions IE getters and setters
@@ -36,7 +36,7 @@ public:
 	}
 
 	//print function
-	void print()
+	virtual void print()
 	{
 		cout << studentID << " , " << firstName << " , " << lastName << " , " << age << " , " << email << " , " << daysInCourse[0] << " , " << daysInCourse[1] << " , " << daysInCourse[2];
 	}

@@ -10,5 +10,18 @@ string studentData[] =
 
 void main() 
 {
+	student* classRosterArray[4];
+	// counter for for loop 
+	int counter = 0;
+	//string array for use in parsing meathods
+	string subStudentSTR[9];
+	// for each loop to initalise studens and parse student data would prefer to put parsing in own parsing class 
+	for (string student : studentData) 
+	{
+		//used to reset string array
+		for (string resetstudent : subStudentSTR)
+		{
 
+		}
+	}
 }
