@@ -73,4 +73,9 @@ int main()
 		counter++;
 	}
 
+
+	for (student *person : classRosterArray)
+	{
+		*person->~student;
+	}
 }

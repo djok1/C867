@@ -34,7 +34,6 @@ public:
 		daysInCourse[1] = stoi(Days2);
 		daysInCourse[2] = stoi(Days3);
 	}
-	student() {}
 
 	//print function
 	virtual void print()
