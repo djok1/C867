@@ -12,11 +12,16 @@ string studentData[] =
 "A5,Dillon,Odell,dodell9@wgu.edu,27,50,58,40,SOFTWARE" };
 
 
+
+
 int main() 
 {
+	/*
+	//legacy code moved to another class
 	 student *classRosterArray[5];
 	// counter for for loop 
 	int counter = 0;
+	
 	//string array for use in parsing meathods
 	string subStudentSTR[9];
 	//used in parsing studentData
@@ -46,6 +51,7 @@ int main()
 			I++;
 		}
 		//determening what kind of student to use
+		//old code resoniblity moved to roster class
 		if (subStudentSTR[8] == "SECURITY")
 		{
 			//couldnt think of a better way to implement this maybe later? feedback usefull here
@@ -72,10 +78,13 @@ int main()
 		
 		counter++;
 	}
+	*/
+}
 
+roster::roster()
+{
+}
 
-	for (student *person : classRosterArray)
-	{
-		*person->~student;
-	}
+roster::~roster()
+{
 }
