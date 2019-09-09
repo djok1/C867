@@ -94,7 +94,7 @@ int main()
 	classRoster.remove("A3");
 	classRoster.remove("A3");
 	//expected: the above line should print a message saying such a student with this ID was not found.
-	system("pause");
+	classRoster.~roster();
 }
 
 roster::roster()
@@ -103,5 +103,11 @@ roster::roster()
 
 roster::~roster()
 {
-	delete []classRosterArray;
+	for (int i = 0; i < 5; i++)
+	{
+		if (classRosterArray[i] != NULL)
+		{
+			classRosterArray[i] = nullptr;
+		}
+	}
 }
