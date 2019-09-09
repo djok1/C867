@@ -7,9 +7,9 @@ class networkStudent :
 		DegreeType degreeType = network;
 
 	public:
-		DegreeType getDegreeType()
+		string getDegreeType()
 		{
-			return degreeType;
+			return "Network";
 		}
 
 		networkStudent(string StudentID, string FirstName, string LastName, string Email, string Age, string Days1, string Days2, string Days3):student( StudentID,  FirstName,  LastName,  Email,  Age,  Days1,  Days2,  Days3)

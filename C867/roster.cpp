@@ -79,6 +79,21 @@ int main()
 		counter++;
 	}
 	*/
+	
+	roster theRoster = roster();
+
+	theRoster.parse(studentData);
+
+	theRoster.printAll();
+	theRoster.printInvalidEmails();
+	//loop through classRosterArray and for each element:
+	theRoster.printDaysInCourse("A1");
+	theRoster.printByDegreeProgram(2);
+	theRoster.remove("A3");
+	theRoster.remove("A3");
+	//expected: the above line should print a message saying such a student with this ID was not found.
+	theRoster.~roster();
+	system("pause");
 }
 
 roster::roster()
@@ -87,4 +102,5 @@ roster::roster()
 
 roster::~roster()
 {
+	delete []classRosterArray;
 }

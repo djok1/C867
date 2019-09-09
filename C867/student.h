@@ -38,7 +38,7 @@ public:
 	//print function
 	virtual void print()
 	{
-		cout << studentID << " , " << firstName << " , " << lastName << " , " << age << " , " << email << " , " << daysInCourse[0] << " , " << daysInCourse[1] << " , " << daysInCourse[2];
+		cout << studentID << '\t' << firstName << '\t' << lastName << '\t' << age << '\t' << email << '\t' << daysInCourse[0] << '\t' << daysInCourse[1] << '\t' << daysInCourse[2] << '\t' << getDegreeType() << endl;
 	}
 
 	//destructor
@@ -126,9 +126,9 @@ public:
 		return daysInCourse[I];
 	}
 	//changed naming conventions due to assgigment requirements
-	virtual DegreeType getdegreeProgram()
+	virtual string getDegreeType()
 	{
-		return degreeType;
+		return "unassgined";
 	}
 
 };

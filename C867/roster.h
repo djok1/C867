@@ -1,6 +1,13 @@
 #pragma once
-#include <array>
+
 #include "student.h"
+#include "networkStudent.h"
+#include "securityStudent.h"
+#include "softwareStudent.h"
+#include <array>
+#include <string>
+using namespace std;
+
 class roster
 {
 	private:
@@ -44,11 +51,11 @@ class roster
 			string subStudentSTR[9];
 			//used in parsing studentData
 			string delimiter = ",";
-			// for each loop to initalise studens and parse student data would prefer to put parsing in own parsing class 
-			for (string Data : data)
+			// for loop to initalise studens and parse student data 
+			for (int c = 0; c < 5 ; c++)
 			{
 				//used so I can parse without destroying data
-				string tempStudentData = Data;
+				string tempStudentData = data[c];
 				// counter to interate though subStudentSTR
 				int I = 0;
 				//used to reset string array
@@ -68,7 +75,121 @@ class roster
 					tempStudentData.erase(0, tempStudentData.find(delimiter) + delimiter.length());
 					I++;
 				}
+				roster::add(subStudentSTR[0], subStudentSTR[1], subStudentSTR[2], subStudentSTR[3], subStudentSTR[4], subStudentSTR[5], subStudentSTR[6], subStudentSTR[7], subStudentSTR[8]);
+			}
+		}
+		//used to find and remove a student from class roster array throws error if sutdent not found
+		void remove(string ID)
+		{
+			bool removed = false;
+			for (int i = 0 ; i < 5 ; i++)
+			{
+				if(classRosterArray[i] != NULL)
+				{
+					if (classRosterArray[i]->getstudentID() == ID)
+					{
+						classRosterArray[i] = nullptr;
+						removed = true;
+						break;
+					}
+				}
+
+			}
+
+			if (removed == false)
+			{
+				cout << "Error: Student " << ID << " not found" << endl;
+			}
+		}
+		//runs print from all the students in the array
+		void printAll()
+		{
+			for (int i = 0; i < 5; i++)
+			{
+				classRosterArray[i]->print();
+			}
+		}
+		//finds average number of days in the 3 courses
+		void printDaysInCourse(string ID)
+		{
+			bool inArray = false;
+			int totalDays = 0 , avgDays = 0;
+			for (int i = 0; i < 5; i++)
+			{
+				if (classRosterArray[i]->getstudentID() == ID)
+				{
+					totalDays = classRosterArray[i]->getdaysInCourse(0) + classRosterArray[i]->getdaysInCourse(0) + classRosterArray[i]->getdaysInCourse(0);
+					avgDays = totalDays / 3;
+					cout << avgDays << endl;
+					inArray = true;
+					break;
+				}
+			}
+
+			if (inArray == false)
+			{
+				cout << "Error: Student " << ID << " not found" << endl;
+			}
+		}
+		//finds and displays invalid emails
+		void printInvalidEmails()
+		{
+			string email = "";
+			bool hasSpace = false;
+			bool hasAt = false;
+			bool hasPeriod = false;
+			for (int i = 0; i < 5; i++)
+			{
+				email = classRosterArray[i]->getemail();
+				hasSpace = false;
+				hasAt = false;
+				hasPeriod = false;
+				for (char c : email)
+				{
+					if (c == '@')
+					{
+						hasAt = true;
+					}
+					if (c == ' ') 
+					{
+						hasSpace = true;
+					}
+					if(c == '.')
+					{
+						hasPeriod = true;
+					}
+				}
+
+				if (!hasPeriod || !hasAt || hasSpace)
+				{
+					cout << email << "     ";
+				}
 				
+			}
+			cout << endl;
+		}
+
+		void printByDegreeProgram(int degreeProgram)
+		{
+			string degree = "";
+			if (degreeProgram == 0)
+			{
+				degree = "Network";
+			}
+			else if (degreeProgram == 1)
+			{
+				degree = "Security";
+			}
+			else if (degreeProgram == 2)
+			{
+				degree = "Software";
+			}
+			for (int i = 0; i < 5; i++)
+			{
+				if (classRosterArray[i]->getDegreeType() == degree)
+				{
+					classRosterArray[i]->print();
+				}
 			}
 		}
 };
